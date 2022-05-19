@@ -17,16 +17,14 @@ setup(
         'restless',
     ],
     requires=[
-        'six(>=1.4.0)',
     ],
     install_requires=[
-        'six>=1.4.0',
     ],
     tests_require=[
         'mock',
         'tox',
     ],
-    python_requires='!=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*',
+    python_requires='>=3.8',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
