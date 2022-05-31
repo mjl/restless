@@ -1,4 +1,4 @@
-class Preparer(object):
+class Preparer:
     """
     A plain preparation object which just passes through data.
 
@@ -6,7 +6,7 @@ class Preparer(object):
     Restless.
     """
     def __init__(self):
-        super(Preparer, self).__init__()
+        super().__init__()
 
     def prepare(self, data):
         """
@@ -36,7 +36,7 @@ class FieldsPreparer(Preparer):
 
     """
     def __init__(self, fields):
-        super(FieldsPreparer, self).__init__()
+        super().__init__()
         self.fields = fields
 
     def prepare(self, data):

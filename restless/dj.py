@@ -20,7 +20,7 @@ class DjangoResource(Resource):
 
     def serialize_list(self, data):
         if data is None:
-            return super(DjangoResource, self).serialize_list(data)
+            return super().serialize_list(data)
 
         if getattr(self, 'paginate', False):
             page_size = getattr(self, 'page_size', getattr(settings, 'RESTLESS_PAGE_SIZE', 10))
@@ -36,10 +36,10 @@ class DjangoResource(Resource):
             self.page = paginator.page(page_number)
             data = self.page.object_list
 
-        return super(DjangoResource, self).serialize_list(data)
+        return super().serialize_list(data)
 
     def wrap_list_response(self, data):
-        response_dict = super(DjangoResource, self).wrap_list_response(data)
+        response_dict = super().wrap_list_response(data)
 
         if hasattr(self, 'page'):
             next_page = self.page.has_next() and self.page.next_page_number() or None
@@ -61,11 +61,11 @@ class DjangoResource(Resource):
     # Because Django.
     @classmethod
     def as_list(self, *args, **kwargs):
-        return csrf_exempt(super(DjangoResource, self).as_list(*args, **kwargs))
+        return csrf_exempt(super().as_list(*args, **kwargs))
 
     @classmethod
     def as_detail(self, *args, **kwargs):
-        return csrf_exempt(super(DjangoResource, self).as_detail(*args, **kwargs))
+        return csrf_exempt(super().as_detail(*args, **kwargs))
 
     def is_debug(self):
         return settings.DEBUG
@@ -84,7 +84,7 @@ class DjangoResource(Resource):
         if isinstance(err, (ObjectDoesNotExist, Http404)):
             err = NotFound(msg=str(err))
 
-        return super(DjangoResource, self).build_error(err)
+        return super().build_error(err)
 
     @classmethod
     def build_url_name(cls, name, name_prefix=None):

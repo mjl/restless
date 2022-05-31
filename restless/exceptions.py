@@ -36,7 +36,7 @@ class HttpError(RestlessError):
         if not msg:
             msg = self.__class__.msg
 
-        super(HttpError, self).__init__(msg)
+        super().__init__(msg)
 
 
 class BadRequest(HttpError):

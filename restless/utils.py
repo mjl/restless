@@ -1,4 +1,3 @@
-
 import datetime
 import decimal
 import json
@@ -25,7 +24,7 @@ class MoreTypesJSONEncoder(json.JSONEncoder):
         elif isinstance(data, decimal.Decimal) or isinstance(data, uuid.UUID):
             return str(data)
         else:
-            return super(MoreTypesJSONEncoder, self).default(data)
+            return super().default(data)
 
 
 def format_traceback(exc_info):

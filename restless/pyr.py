@@ -14,7 +14,7 @@ class PyramidResource(Resource):
 
     @classmethod
     def as_list(cls, *args, **kwargs):
-        return super(PyramidResource, cls).as_list(*args, **kwargs)
+        return super().as_list(*args, **kwargs)
 
     @classmethod
     def as_detail(cls, *init_args, **init_kwargs):

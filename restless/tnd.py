@@ -40,13 +40,13 @@ def _method(self, *args, **kwargs):
     yield self.resource_handler.handle(self.__resource_view_type__, *args, **kwargs)
 
 
-class _BridgeMixin(object):
+class _BridgeMixin:
     """
     This mixin would pass tornado parameters to restless,
     and helps to init a resource instance
     """
     def __init__(self, *args, **kwargs):
-        super(_BridgeMixin, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         # create a resource instance based on the registered class
         # and init-parameters
         self.resource_handler = self.__class__.__resource_cls__(
@@ -70,7 +70,7 @@ class TornadoResource(Resource):
     """
 
     def __init__(self, *args, **kwargs):
-        super(TornadoResource, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         self.request = None
         """
